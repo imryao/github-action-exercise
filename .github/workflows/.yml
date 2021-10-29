@@ -1,0 +1,22 @@
+name: mryao
+on: push
+jobs:
+  job1:
+    name: job1
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.7'
+      - run: cd templates/frontend
+      - run: npm i
+      - run: npm run dev &
+      - run: cd ../../
+      - run: pip3 install flask
+      - run: python3 index.py &
+      - run: ret=$(curl -i http://localhost:8080/#/ | grep "200 OK")
+	  - run: [ -z "$ret2" ];echo $?
