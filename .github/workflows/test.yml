@@ -16,6 +16,6 @@ jobs:
       - run: npm i
       - run: npm run dev &
       - run: cd ../../
-      - run: pip3 install flask flask_cors
+      - run: pip3 install flask flask_cors pymongo
       - run: python3 index.py &
       - run: ret=$(curl -i http://localhost:8080/#/ | grep "200 OK") [ -z "$ret2" ];echo $?
