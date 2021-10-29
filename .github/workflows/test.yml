@@ -14,7 +14,6 @@ jobs:
           python-version: '3.7'
       - run: cd templates/frontend && npm i
       - run: cd templates/frontend && npm run dev &
-      - run: cd ../../
       - run: pip3 install flask flask_cors pymongo
       - run: python3 index.py &
       - run: ret=$(curl -i http://localhost:8080/#/ | grep "200 OK") [ -z "$ret2" ];echo $?
