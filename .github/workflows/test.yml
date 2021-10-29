@@ -18,5 +18,4 @@ jobs:
       - run: cd ../../
       - run: pip3 install flask
       - run: python3 index.py &
-      - run: ret=$(curl -i http://localhost:8080/#/ | grep "200 OK")
-	  - run: [ -z "$ret2" ];echo $?
+      - run: ret=$(curl -i http://localhost:8080/#/ | grep "200 OK") [ -z "$ret2" ];echo $?
